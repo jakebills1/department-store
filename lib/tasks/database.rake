@@ -8,19 +8,22 @@ namespace :database do
       Item.create(department_id: dep1.id, 
         name: Faker::Commerce.product_name, 
         price: Faker::Commerce.price,
-        description: Faker::Lorem.sentence )
+        description: Faker::Lorem.sentence,
+        number_in_stock: rand(1000) )
     end
     10.times do
       Item.create(department_id: dep2.id, 
         name: Faker::Commerce.product_name, 
         price: Faker::Commerce.price,
-        description: Faker::Lorem.sentence )
+        description: Faker::Lorem.sentence,
+        number_in_stock: rand(1000) )
     end
     10.times do
       Item.create(department_id: dep3.id, 
         name: Faker::Commerce.product_name, 
         price: Faker::Commerce.price,
-        description: Faker::Lorem.sentence )
+        description: Faker::Lorem.sentence,
+        number_in_stock: rand(1000) )
     end
 
   end

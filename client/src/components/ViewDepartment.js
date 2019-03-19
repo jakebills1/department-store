@@ -1,6 +1,7 @@
 import React from 'react';
-import { Header, Table } from 'semantic-ui-react';
+import { Header, Table, Button } from 'semantic-ui-react';
 import Axios from 'axios';
+import { Link, } from 'react-router-dom';
 class ViewDepartment extends React.Component {
   state = { department: {}, items: [], }
   componentDidMount() {
@@ -35,6 +36,7 @@ class ViewDepartment extends React.Component {
             )}
           </Table.Body>
         </Table>
+        < Button color="blue" as={Link} to="/departments/:id/items">Add to Inventory</Button>
       </div>
     )
   }

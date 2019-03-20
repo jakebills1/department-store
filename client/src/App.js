@@ -7,6 +7,7 @@ import NoMatch from './components/NoMatch';
 import AddItem from './components/AddItem';
 import ViewDepartment from './components/ViewDepartment';
 import EditDepartment from './components/EditDepartment';
+import EditItem from './components/EditItem';
 import { Route, Switch, } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
 class App extends Component {
@@ -22,6 +23,7 @@ class App extends Component {
             <Route exact path="/departments/:id" component={ViewDepartment} />
             <Route exact path="/departments/:id/edit" component={EditDepartment} />
             <Route exact path="/departments/:id/items" component={AddItem} />
+            <Route exact path="/departments/:id/items/:item_id" component={EditItem} />
             <Route component={NoMatch} />
           </Switch>
         </Container>

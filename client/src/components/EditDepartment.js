@@ -6,13 +6,13 @@ class EditDepartment extends React.Component {
   componentDidMount() {
     axios.get(`/api/departments/${this.props.match.params.id}`)
     .then( res => {
-      this.setState({ department: res.data})
+      this.setState({ department: res.data, })
     })
   }
   handleChange = (e) => {
     this.setState({ department: {
       name: e.target.value, 
-    } })
+    }})
   }
   handleSubmit = (e) => {
     e.preventDefault();

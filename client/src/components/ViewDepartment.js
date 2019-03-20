@@ -24,6 +24,7 @@ class ViewDepartment extends React.Component {
               <Table.HeaderCell>Item Name</Table.HeaderCell>
               <Table.HeaderCell>Item Price</Table.HeaderCell>
               <Table.HeaderCell>Item Description</Table.HeaderCell>
+              <Table.HeaderCell># in stock</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>
@@ -32,11 +33,12 @@ class ViewDepartment extends React.Component {
                 <Table.Cell>{item.name}</Table.Cell>
                 <Table.Cell>${item.price.toFixed(2)}</Table.Cell>
                 <Table.Cell>{item.description}</Table.Cell>
+                <Table.Cell>{item.number_in_stock}</Table.Cell>
               </Table.Row>
             )}
           </Table.Body>
         </Table>
-        < Button color="blue" as={Link} to="/departments/:id/items">Add to Inventory</Button>
+        < Button color="blue" as={Link} to={`/departments/${this.props.match.params.id}/items`}>Add to Inventory</Button>
       </div>
     )
   }

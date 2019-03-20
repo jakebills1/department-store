@@ -38,7 +38,7 @@ class Api::ItemsController < ApplicationController
       @item = Item.find(params[:id])
     end
     def item_params
-      params.require(:item).permit(:name, :price, :description)
+      params.require(:item).permit(:name, :price, :description, :number_in_stock)
     end
 
 end

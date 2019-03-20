@@ -4,8 +4,9 @@ import Navbar from './components/Navbar'
 import About from './components/About';
 import Departments from './components/Departments';
 import NoMatch from './components/NoMatch';
-import AddItem from './components/AddItem'
-import ViewDepartment from './components/ViewDepartment'
+import AddItem from './components/AddItem';
+import ViewDepartment from './components/ViewDepartment';
+import EditDepartment from './components/EditDepartment';
 import { Route, Switch, } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
 class App extends Component {
@@ -18,8 +19,9 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />
             <Route exact path="/departments" component={Departments} />
-            <Route exact path="/departments/:id/items" component={AddItem} />
             <Route exact path="/departments/:id" component={ViewDepartment} />
+            <Route exact path="/departments/:id/edit" component={EditDepartment} />
+            <Route exact path="/departments/:id/items" component={AddItem} />
             <Route component={NoMatch} />
           </Switch>
         </Container>

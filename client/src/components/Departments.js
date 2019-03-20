@@ -15,8 +15,16 @@ class Departments extends React.Component {
     const { departments, } = this.state;
     this.setState({ departments: [dep, ...departments], addDep: false})
   }
+  delete = (depID) => {
+    axios.delete(`/api/departments/${depID}`)
+      .then( res => {
+        console.log(res)
+      })
+    const departments = this.state.departments.filter( dep => dep.id !== depID )
+    this.setState({ departments, })
+  }
   toggle = () => this.setState({ addDep: !this.state.addDep})
-  renderDeps = () => this.state.departments.map( dep => <Department key={dep.id} {...dep}/>)
+  renderDeps = () => this.state.departments.map( dep => <Department key={dep.id} {...dep} deleteDep={this.delete}/>)
   render(){
     return (
       <div>

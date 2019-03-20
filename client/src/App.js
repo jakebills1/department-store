@@ -10,12 +10,13 @@ import EditDepartment from './components/EditDepartment';
 import EditItem from './components/EditItem';
 import { Route, Switch, } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
+import styled from 'styled-components';
 class App extends Component {
   render() {
     return (
       <Fragment>
         <Navbar />
-        <Container>
+        <AppContainer>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />
@@ -26,12 +27,16 @@ class App extends Component {
             <Route exact path="/departments/:id/items/:item_id" component={EditItem} />
             <Route component={NoMatch} />
           </Switch>
-        </Container>
+        </AppContainer>
       </Fragment>
-
-
     );
   }
 }
+
+const AppContainer = styled.div`
+  padding-left: 10%;
+  padding-right: 10%;
+  background: linear-gradient( to bottom right, teal, black);
+`
 
 export default App;

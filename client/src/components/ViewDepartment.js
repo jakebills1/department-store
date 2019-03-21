@@ -5,13 +5,13 @@ import { Link, } from 'react-router-dom';
 class ViewDepartment extends React.Component {
   state = { department: {}, items: [], }
   componentDidMount() {
-    Axios.get(`/api/departments/${this.props.match.params.id}`)
-      .then( res => {
-        this.setState({ department: res.data})
-      })
     Axios.get(`/api/departments/${this.props.match.params.id}/items`)
       .then( res => {
         this.setState({ items: res.data})
+      })
+    Axios.get(`/api/departments/${this.props.match.params.id}`)
+      .then( res => {
+        this.setState({ department: res.data})
       })
   }
   delete = (itemID) => {
@@ -39,11 +39,11 @@ class ViewDepartment extends React.Component {
               <Table.Row key={item.id}>
                     <Table.Cell>
                       <div style={{display: "flex", justifyContent: "space-between"}}>
+                        <Link to={`/departments/${this.props.match.params.id}/items/${item.id}`}>
+                          <div>{item.name}</div>
+                        </Link>
                         <div>
-                          {item.name}
-                        </div>
-                        <div>
-                          <Button icon color="green" as={Link} to={`/departments/${this.props.match.params.id}/items/${item.id}`}><Icon name="pencil"/></Button>
+                          <Button icon color="green" as={Link} to={`/departments/${this.props.match.params.id}/items/${item.id}/edit`}><Icon name="pencil"/></Button>
                           <Button icon color="red" onClick={() => this.delete(item.id)}><Icon name="trash"/></Button>
                         </div>
                       </div>

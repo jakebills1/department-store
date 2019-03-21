@@ -8,8 +8,8 @@ import AddItem from './components/AddItem';
 import ViewDepartment from './components/ViewDepartment';
 import EditDepartment from './components/EditDepartment';
 import EditItem from './components/EditItem';
+import ViewItem from './components/ViewItem';
 import { Route, Switch, } from 'react-router-dom';
-import { Container } from 'semantic-ui-react';
 import styled from 'styled-components';
 class App extends Component {
   render() {
@@ -24,7 +24,8 @@ class App extends Component {
             <Route exact path="/departments/:id" component={ViewDepartment} />
             <Route exact path="/departments/:id/edit" component={EditDepartment} />
             <Route exact path="/departments/:id/items" component={AddItem} />
-            <Route exact path="/departments/:id/items/:item_id" component={EditItem} />
+            <Route exact path="/departments/:id/items/:item_id" component={ViewItem} />
+            <Route exact path="/departments/:id/items/:item_id/edit" component={EditItem} />
             <Route component={NoMatch} />
           </Switch>
         </AppContainer>

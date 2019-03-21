@@ -30,6 +30,7 @@ class Api::ItemsController < ApplicationController
     @item.destroy
     render json: { message: "Item Deleted"}
   end
+  
   private 
     def set_department
       @department = Department.find(params[:department_id])
